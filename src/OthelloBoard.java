@@ -1,5 +1,3 @@
-package sample;
-
 public class OthelloBoard {
     private static String LETTERS = "ABCDEFGH";
     private static char BLACK = 'b';

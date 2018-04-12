@@ -1,5 +1,3 @@
-package sample;
-
 public class Coordinates {
     private int row, col;
 

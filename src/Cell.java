@@ -1,5 +1,3 @@
-package sample;
-
 public class Cell {
     private Coordinates coordinates;
     private char symbol;
