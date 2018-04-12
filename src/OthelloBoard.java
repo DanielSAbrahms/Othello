@@ -1,3 +1,5 @@
+import javafx.scene.control.Button;
+
 public class OthelloBoard {
     private static String LETTERS = "ABCDEFGH";
     private static char BLACK = 'b';
@@ -26,7 +28,7 @@ public class OthelloBoard {
 
     // This is the beefy method where we flip all the tiles that are surrounded, on two sides, by
     // a piece belonging to the opponent
-    public void makeMove(char player, char opponent, int row, int col){
+    public void makeMove(Button[][] buttonArr, char player, char opponent, int row, int col){
         // Making the actual player's move
         Cell tmp = board[row][col];
         tmp.setSymbol(player);
@@ -44,8 +46,141 @@ public class OthelloBoard {
                 j--;
             }
             if(i>=0 && j>=0 && board[i][j].getSymbol() == player) {
-                while(i!=row-1 && j!=col-1)
+                while(i!=row-1 && j!=col-1) {
                     board[++i][++j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        i=row;j=col;
+        if(i-1>=0 && board[i-1][j].getSymbol() == opponent){
+            i = i-1;
+            while(i>0 && board[i][j].getSymbol() == opponent)
+                i--;
+            if(i>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row-1) {
+                    board[++i][j].setSymbol(player);
+                    if (player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        i=row;
+        if(i-1>=0 && j+1<=7 && board[i-1][j+1].getSymbol() == opponent){
+            i = i-1; j = j+1;
+            while(i>0 && j<7 && board[i][j].getSymbol() == opponent){
+                i--;j++;
+            }
+            if(i>=0 && j<=7 && board[i][j].getSymbol() == player) {
+                while(i!=row-1 && j!=col+1){
+                    board[++i][--j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        i=row;j=col;
+        if(j-1>=0 && board[i][j-1].getSymbol() == opponent){
+            j = j-1;
+            while(j>0 && board[i][j].getSymbol() == opponent)
+                j--;
+            if(j>=0 && board[i][j].getSymbol() == player) {
+                while(j!=col-1){
+                    board[i][++j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        j=col;
+        if(j+1<=7 && board[i][j+1].getSymbol() == opponent){
+            j=j+1;
+            while(j<7 && board[i][j].getSymbol() == opponent)
+                j++;
+            if(j<=7 && board[i][j].getSymbol() == player) {
+                while(j!=col+1){
+                    board[i][--j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        j=col;
+        if(i+1<=7 && j-1>=0 && board[i+1][j-1].getSymbol() == opponent){
+            i=i+1;j=j-1;
+            while(i<7 && j>0 && board[i][j].getSymbol() == opponent){
+                i++;
+                j--;
+            }
+            if(i<=7 && j>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row+1 && j!=col-1){
+                    board[--i][++j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        i=row;
+        j=col;
+        if(i+1 <= 7 && board[i+1][j].getSymbol() == opponent){
+            i=i+1;
+            while(i<7 && board[i][j].getSymbol() == opponent)
+                i++;
+            if(i<=7 && board[i][j].getSymbol() == player) {
+                while(i!=row+1){
+                    board[--i][j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+
+        i=row;
+        if(i+1 <= 7 && j+1 <=7 && board[i+1][j+1].getSymbol() == opponent){
+            i=i+1;j=j+1;
+            while(i<7 && j<7 && board[i][j].getSymbol() == opponent){
+                i++;
+                j++;
+            }
+            if(i<=7 && j<=7 && board[i][j].getSymbol() == player) {
+                while (i != row + 1 && j != col + 1){
+                    board[--i][--j].setSymbol(player);
+                    if(player == 'b') buttonArr[i][j].setStyle("-fx-background-color: black");
+                    else buttonArr[i][j].setStyle("-fx-background-color: white");
+                }
+            }
+        }
+        countEmUp();
+    }
+
+    public void highlightAppropriate(Button[][] buttonArr, char player, char opponent, int row, int col){
+        // Making the actual player's move
+        Cell tmp = board[row][col];
+        tmp.setSymbol(player);
+        tmp.setOccupied(true);
+        numOccupied++;
+
+
+        int i = row, j = col;
+
+        // Lots of tedious code to change the appropriate tiles
+        if(i-1>=0 && j-1>=0 && board[i-1][j-1].getSymbol() == opponent){
+            i = i-1; j = j-1;
+            while(i>0 && j>0 && board[i][j].getSymbol() == opponent) {
+                i--;
+                j--;
+            }
+            if(i>=0 && j>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row-1 && j!=col-1){
+                    buttonArr[++i][++j].setStyle("-fx-background-color: yellow");
+                }
             }
         }
 
@@ -56,7 +191,7 @@ public class OthelloBoard {
                 i--;
             if(i>=0 && board[i][j].getSymbol() == player) {
                 while(i!=row-1)
-                    board[++i][j].setSymbol(player);
+                    buttonArr[++i][j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -68,7 +203,7 @@ public class OthelloBoard {
             }
             if(i>=0 && j<=7 && board[i][j].getSymbol() == player) {
                 while(i!=row-1 && j!=col+1)
-                    board[++i][--j].setSymbol(player);
+                    buttonArr[++i][--j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -79,7 +214,7 @@ public class OthelloBoard {
                 j--;
             if(j>=0 && board[i][j].getSymbol() == player) {
                 while(j!=col-1)
-                    board[i][++j].setSymbol(player);
+                    buttonArr[i][++j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -90,7 +225,7 @@ public class OthelloBoard {
                 j++;
             if(j<=7 && board[i][j].getSymbol() == player) {
                 while(j!=col+1)
-                    board[i][--j].setSymbol(player);
+                    buttonArr[i][--j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -103,7 +238,7 @@ public class OthelloBoard {
             }
             if(i<=7 && j>=0 && board[i][j].getSymbol() == player) {
                 while(i!=row+1 && j!=col-1)
-                    board[--i][++j].setSymbol(player);
+                    buttonArr[--i][++j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -115,7 +250,7 @@ public class OthelloBoard {
                 i++;
             if(i<=7 && board[i][j].getSymbol() == player) {
                 while(i!=row+1)
-                    board[--i][j].setSymbol(player);
+                    buttonArr[--i][j].setStyle("-fx-background-color: yellow");
             }
         }
 
@@ -128,10 +263,9 @@ public class OthelloBoard {
             }
             if(i<=7 && j<=7 && board[i][j].getSymbol() == player) {
                 while (i != row + 1 && j != col + 1)
-                    board[--i][--j].setSymbol(player);
+                    buttonArr[--i][--j].setStyle("-fx-background-color: yellow");
             }
         }
-        countEmUp();
     }
 
     private void countEmUp(){

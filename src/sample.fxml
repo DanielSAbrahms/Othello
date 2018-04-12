@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.util.ArrayList?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
@@ -504,4 +505,73 @@
             </items>
         </SplitPane>
     </children>
+
+    <fx:define>
+        <ArrayList fx:id="buttonList">
+            <fx:reference source="A1"/>
+            <fx:reference source="A2"/>
+            <fx:reference source="A3"/>
+            <fx:reference source="A4"/>
+            <fx:reference source="A5"/>
+            <fx:reference source="A6"/>
+            <fx:reference source="A7"/>
+            <fx:reference source="A8"/>
+            <fx:reference source="B1"/>
+            <fx:reference source="B2"/>
+            <fx:reference source="B3"/>
+            <fx:reference source="B4"/>
+            <fx:reference source="B5"/>
+            <fx:reference source="B6"/>
+            <fx:reference source="B7"/>
+            <fx:reference source="B8"/>
+            <fx:reference source="C1"/>
+            <fx:reference source="C2"/>
+            <fx:reference source="C3"/>
+            <fx:reference source="C4"/>
+            <fx:reference source="C5"/>
+            <fx:reference source="C6"/>
+            <fx:reference source="C7"/>
+            <fx:reference source="C8"/>
+            <fx:reference source="D1"/>
+            <fx:reference source="D2"/>
+            <fx:reference source="D3"/>
+            <fx:reference source="D4"/>
+            <fx:reference source="D5"/>
+            <fx:reference source="D6"/>
+            <fx:reference source="D7"/>
+            <fx:reference source="D8"/>
+            <fx:reference source="E1"/>
+            <fx:reference source="E2"/>
+            <fx:reference source="E3"/>
+            <fx:reference source="E4"/>
+            <fx:reference source="E5"/>
+            <fx:reference source="E6"/>
+            <fx:reference source="E7"/>
+            <fx:reference source="E8"/>
+            <fx:reference source="F1"/>
+            <fx:reference source="F2"/>
+            <fx:reference source="F3"/>
+            <fx:reference source="F4"/>
+            <fx:reference source="F5"/>
+            <fx:reference source="F6"/>
+            <fx:reference source="F7"/>
+            <fx:reference source="F8"/>
+            <fx:reference source="G1"/>
+            <fx:reference source="G2"/>
+            <fx:reference source="G3"/>
+            <fx:reference source="G4"/>
+            <fx:reference source="G5"/>
+            <fx:reference source="G6"/>
+            <fx:reference source="G7"/>
+            <fx:reference source="G8"/>
+            <fx:reference source="H1"/>
+            <fx:reference source="H2"/>
+            <fx:reference source="H3"/>
+            <fx:reference source="H4"/>
+            <fx:reference source="H5"/>
+            <fx:reference source="H6"/>
+            <fx:reference source="H7"/>
+            <fx:reference source="H8"/>
+        </ArrayList>
+    </fx:define>
 </VBox>
