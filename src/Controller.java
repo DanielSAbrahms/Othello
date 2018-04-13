@@ -154,4 +154,15 @@ public class Controller implements Initializable {
         Button button = (Button) actionEvent.getSource();
         //TODO
     }
+
+    public void revertButtonPress(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        //TODO
+    }
+
+    public void declineMoveButtonPress(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        //TODO
+    }
 }
+
