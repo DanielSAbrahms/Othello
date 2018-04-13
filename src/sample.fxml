@@ -17,8 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.util.ArrayList?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -63,9 +62,11 @@
             <items>
                 <AnchorPane prefHeight="576.0" prefWidth="212.0">
                     <children>
-                        <ListView id="MoveHistory" layoutX="8.0" layoutY="311.0" prefHeight="252.0" prefWidth="206.0" />
-                        <Button id="NewGameButton" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="New Game" />
-                        <Button id="FlipSetupButton" layoutX="36.0" layoutY="54.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Flip Setup" />
+                        <ListView fx:id="MoveHistoryTextView" layoutX="8.0" layoutY="172.0" prefHeight="391.0" prefWidth="206.0" />
+                        <Button fx:id="NewGameButton" onAction="#newGameButtonPress" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="New Game" />
+                        <Button fx:id="FlipSetupButton" onAction="#flipSetupButtonPress" layoutX="36.0" layoutY="54.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Flip Setup" />
+                  <Button fx:id="ConfirmMoveButton" onAction="#confirmMoveButtonPress" layoutX="36.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Confirm Move" />
+                  <Label id="MoveHistoryLabel" layoutX="36.0" layoutY="151.0" prefHeight="21.0" prefWidth="150.0" text="Move History" />
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -176,322 +177,322 @@
                                                 <Font size="32.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="A1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Button fx:id="A1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button fx:id="A2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                        <Button fx:id="A3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                        <Button fx:id="A4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                        <Button fx:id="A6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                        <Button fx:id="A5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                        <Button fx:id="A8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="A7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                        <Button fx:id="A7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <Button fx:id="B1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                        <Button fx:id="C1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                        <Button fx:id="D1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                        <Button fx:id="E1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                        <Button fx:id="F1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                        <Button fx:id="G1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H1" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                        <Button fx:id="H1" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button fx:id="B2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                        <Button fx:id="C2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                        <Button fx:id="D2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                        <Button fx:id="E2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                        <Button fx:id="F2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                        <Button fx:id="G2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H2" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                        <Button fx:id="H2" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                        <Button fx:id="B3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                        <Button fx:id="C3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                        <Button fx:id="D3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                        <Button fx:id="E3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                        <Button fx:id="F3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                        <Button fx:id="G3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H3" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                        <Button fx:id="H3" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="3">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                        <Button fx:id="B4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                        <Button fx:id="C4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                        <Button fx:id="D4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                        <Button fx:id="E4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                        <Button fx:id="F4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                        <Button fx:id="G4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H4" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                        <Button fx:id="H4" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="4">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                        <Button fx:id="B5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                        <Button fx:id="C5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                        <Button fx:id="D5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                        <Button fx:id="E5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                        <Button fx:id="F5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                        <Button fx:id="G5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H5" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                        <Button fx:id="H5" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                        <Button fx:id="B6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                        <Button fx:id="C6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                        <Button fx:id="D6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                        <Button fx:id="E6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                        <Button fx:id="F6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                        <Button fx:id="G6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H6" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                        <Button fx:id="H6" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="6">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                        <Button fx:id="B7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                        <Button fx:id="C7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                        <Button fx:id="D7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                        <Button fx:id="E7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                        <Button fx:id="F7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                        <Button fx:id="G7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H7" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="7">
+                                        <Button fx:id="H7" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="7">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="B8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                        <Button fx:id="B8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="C8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                        <Button fx:id="C8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="D8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                        <Button fx:id="D8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="4" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="E8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                        <Button fx:id="E8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="5" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="F8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="8">
+                                        <Button fx:id="F8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="6" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="G8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                        <Button fx:id="G8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="7" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
                                         </Button>
-                                        <Button fx:id="H8" onAction="#gameButtonPress" mnemonicParsing="false" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
+                                        <Button fx:id="H8" mnemonicParsing="false" onAction="#gameButtonPress" prefHeight="63.0" prefWidth="76.0" GridPane.columnIndex="8" GridPane.rowIndex="8">
                                             <GridPane.margin>
                                                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                             </GridPane.margin>
@@ -508,70 +509,70 @@
 
     <fx:define>
         <ArrayList fx:id="buttonList">
-            <fx:reference source="A1"/>
-            <fx:reference source="A2"/>
-            <fx:reference source="A3"/>
-            <fx:reference source="A4"/>
-            <fx:reference source="A5"/>
-            <fx:reference source="A6"/>
-            <fx:reference source="A7"/>
-            <fx:reference source="A8"/>
-            <fx:reference source="B1"/>
-            <fx:reference source="B2"/>
-            <fx:reference source="B3"/>
-            <fx:reference source="B4"/>
-            <fx:reference source="B5"/>
-            <fx:reference source="B6"/>
-            <fx:reference source="B7"/>
-            <fx:reference source="B8"/>
-            <fx:reference source="C1"/>
-            <fx:reference source="C2"/>
-            <fx:reference source="C3"/>
-            <fx:reference source="C4"/>
-            <fx:reference source="C5"/>
-            <fx:reference source="C6"/>
-            <fx:reference source="C7"/>
-            <fx:reference source="C8"/>
-            <fx:reference source="D1"/>
-            <fx:reference source="D2"/>
-            <fx:reference source="D3"/>
-            <fx:reference source="D4"/>
-            <fx:reference source="D5"/>
-            <fx:reference source="D6"/>
-            <fx:reference source="D7"/>
-            <fx:reference source="D8"/>
-            <fx:reference source="E1"/>
-            <fx:reference source="E2"/>
-            <fx:reference source="E3"/>
-            <fx:reference source="E4"/>
-            <fx:reference source="E5"/>
-            <fx:reference source="E6"/>
-            <fx:reference source="E7"/>
-            <fx:reference source="E8"/>
-            <fx:reference source="F1"/>
-            <fx:reference source="F2"/>
-            <fx:reference source="F3"/>
-            <fx:reference source="F4"/>
-            <fx:reference source="F5"/>
-            <fx:reference source="F6"/>
-            <fx:reference source="F7"/>
-            <fx:reference source="F8"/>
-            <fx:reference source="G1"/>
-            <fx:reference source="G2"/>
-            <fx:reference source="G3"/>
-            <fx:reference source="G4"/>
-            <fx:reference source="G5"/>
-            <fx:reference source="G6"/>
-            <fx:reference source="G7"/>
-            <fx:reference source="G8"/>
-            <fx:reference source="H1"/>
-            <fx:reference source="H2"/>
-            <fx:reference source="H3"/>
-            <fx:reference source="H4"/>
-            <fx:reference source="H5"/>
-            <fx:reference source="H6"/>
-            <fx:reference source="H7"/>
-            <fx:reference source="H8"/>
+            <fx:reference source="A1" />
+            <fx:reference source="A2" />
+            <fx:reference source="A3" />
+            <fx:reference source="A4" />
+            <fx:reference source="A5" />
+            <fx:reference source="A6" />
+            <fx:reference source="A7" />
+            <fx:reference source="A8" />
+            <fx:reference source="B1" />
+            <fx:reference source="B2" />
+            <fx:reference source="B3" />
+            <fx:reference source="B4" />
+            <fx:reference source="B5" />
+            <fx:reference source="B6" />
+            <fx:reference source="B7" />
+            <fx:reference source="B8" />
+            <fx:reference source="C1" />
+            <fx:reference source="C2" />
+            <fx:reference source="C3" />
+            <fx:reference source="C4" />
+            <fx:reference source="C5" />
+            <fx:reference source="C6" />
+            <fx:reference source="C7" />
+            <fx:reference source="C8" />
+            <fx:reference source="D1" />
+            <fx:reference source="D2" />
+            <fx:reference source="D3" />
+            <fx:reference source="D4" />
+            <fx:reference source="D5" />
+            <fx:reference source="D6" />
+            <fx:reference source="D7" />
+            <fx:reference source="D8" />
+            <fx:reference source="E1" />
+            <fx:reference source="E2" />
+            <fx:reference source="E3" />
+            <fx:reference source="E4" />
+            <fx:reference source="E5" />
+            <fx:reference source="E6" />
+            <fx:reference source="E7" />
+            <fx:reference source="E8" />
+            <fx:reference source="F1" />
+            <fx:reference source="F2" />
+            <fx:reference source="F3" />
+            <fx:reference source="F4" />
+            <fx:reference source="F5" />
+            <fx:reference source="F6" />
+            <fx:reference source="F7" />
+            <fx:reference source="F8" />
+            <fx:reference source="G1" />
+            <fx:reference source="G2" />
+            <fx:reference source="G3" />
+            <fx:reference source="G4" />
+            <fx:reference source="G5" />
+            <fx:reference source="G6" />
+            <fx:reference source="G7" />
+            <fx:reference source="G8" />
+            <fx:reference source="H1" />
+            <fx:reference source="H2" />
+            <fx:reference source="H3" />
+            <fx:reference source="H4" />
+            <fx:reference source="H5" />
+            <fx:reference source="H6" />
+            <fx:reference source="H7" />
+            <fx:reference source="H8" />
         </ArrayList>
     </fx:define>
 </VBox>

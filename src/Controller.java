@@ -140,5 +140,18 @@ public class Controller implements Initializable {
     }
 
 
+    public void newGameButtonPress(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        //TODO
+    }
 
+    public void flipSetupButtonPress(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        //TODO
+    }
+
+    public void confirmMoveButtonPress(ActionEvent actionEvent) {
+        Button button = (Button) actionEvent.getSource();
+        //TODO
+    }
 }
