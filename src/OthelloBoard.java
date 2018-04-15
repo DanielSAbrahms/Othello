@@ -21,6 +21,14 @@ public class OthelloBoard {
         this.numOccupied = 0;
     }
 
+    public OthelloBoard(Cell[][] cellArr){
+        this.board = cellArr;
+    }
+
+    public Cell[][] getBoard(){
+        return this.board;
+    }
+
 
     public boolean isIndexOccupied(int row, int col){
         return board[row][col].isOccupied();
@@ -266,6 +274,9 @@ public class OthelloBoard {
                     buttonArr[--i][--j].setStyle("-fx-background-color: yellow");
             }
         }
+
+        if(player == 'b') buttonArr[row][col].setStyle("-fx-background-color: black");
+        else buttonArr[row][col].setStyle("-fx-background-color: white");
     }
 
     private void countEmUp(){
@@ -288,6 +299,10 @@ public class OthelloBoard {
 
     public int getNumOccupied() {
         return numOccupied;
+    }
+
+    protected Cell getCellAtIndex(int row, int col){
+        return board[row][col];
     }
 
     @Override
