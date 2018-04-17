@@ -16,8 +16,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 <?import java.util.ArrayList?>
+
 <VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
@@ -63,14 +63,16 @@
             <items>
                 <AnchorPane prefHeight="576.0" prefWidth="212.0">
                     <children>
-                        <ListView fx:id="MoveHistoryTextView" layoutX="8.0" layoutY="269.0" prefHeight="209.0" prefWidth="206.0" />
-                        <Button fx:id="NewGameButton" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#newGameButtonPress" prefHeight="26.0" prefWidth="150.0" text="New Game" />
+                        <ListView fx:id="MoveHistoryTextView" layoutX="8.0" layoutY="316.0" prefHeight="209.0" prefWidth="206.0" />
+                        <Button fx:id="NewGameButton" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#newGameButtonPress" prefHeight="26.0" prefWidth="150.0" text="Quit Game" />
                         <Button fx:id="FlipSetupButton" layoutX="36.0" layoutY="54.0" mnemonicParsing="false" onAction="#flipSetupButtonPress" prefHeight="26.0" prefWidth="150.0" text="Flip Setup" />
                   <Button fx:id="ConfirmMoveButton" layoutX="36.0" layoutY="93.0" mnemonicParsing="false" onAction="#confirmMoveButtonPress" prefHeight="31.0" prefWidth="150.0" text="Confirm Move" />
-                  <Label fx:id="MoveHistoryLabel" layoutX="36.0" layoutY="248.0" prefHeight="21.0" prefWidth="150.0" text="Move History" />
+                  <Label fx:id="MoveHistoryLabel" layoutX="14.0" layoutY="288.0" prefHeight="21.0" prefWidth="150.0" text="Move History" />
                   <Button fx:id="RevertButton" layoutX="36.0" layoutY="179.0" mnemonicParsing="false" onAction="#revertButtonPress" prefHeight="31.0" prefWidth="150.0" text="Revert" />
                   <Button fx:id="DeclineMoveButton" layoutX="36.0" layoutY="134.0" mnemonicParsing="false" onAction="#declineMoveButtonPress" prefHeight="31.0" prefWidth="150.0" text="Decline Move" />
-                  <Label fx:id="ErrorLabel" layoutX="30.0" layoutY="505.0" prefHeight="21.0" prefWidth="168.0" text="Error:" />
+                  <Label fx:id="ErrorLabel" layoutX="14.0" layoutY="541.0" prefHeight="21.0" prefWidth="168.0" text="Error:" />
+                  <Label fx:id="WhitePointsLabel" layoutX="19.0" layoutY="225.0" prefHeight="21.0" prefWidth="168.0" text="White Points:"/>
+                  <Label fx:id="BlackPointsLabel" layoutX="19.0" layoutY="254.0" prefHeight="21.0" prefWidth="168.0" text="Black Points:"/>
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
