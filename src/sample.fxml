@@ -71,16 +71,8 @@
                   <Button fx:id="RevertButton" layoutX="36.0" layoutY="179.0" mnemonicParsing="false" onAction="#revertButtonPress" prefHeight="31.0" prefWidth="150.0" text="Revert" />
                   <Button fx:id="DeclineMoveButton" layoutX="36.0" layoutY="134.0" mnemonicParsing="false" onAction="#declineMoveButtonPress" prefHeight="31.0" prefWidth="150.0" text="Decline Move" />
                   <Label fx:id="ErrorLabel" layoutX="14.0" layoutY="541.0" prefHeight="21.0" prefWidth="168.0" text="Error:" />
-                  <Label id="WhitePointsLabel" layoutX="19.0" layoutY="225.0" prefHeight="21.0" prefWidth="168.0" text="White Points:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label id="BlackPointsLabel" layoutX="19.0" layoutY="254.0" prefHeight="21.0" prefWidth="168.0" text="Black Points:">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </Label>
+                  <Label fx:id="WhitePointsLabel" layoutX="19.0" layoutY="225.0" prefHeight="21.0" prefWidth="168.0" text="White Points:"/>
+                  <Label fx:id="BlackPointsLabel" layoutX="19.0" layoutY="254.0" prefHeight="21.0" prefWidth="168.0" text="Black Points:"/>
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">

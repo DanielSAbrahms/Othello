@@ -19,10 +19,12 @@ public class OthelloBoard {
             }
         }
         this.numOccupied = 0;
+        countEmUp();
     }
 
     public OthelloBoard(Cell[][] cellArr){
         this.board = cellArr;
+        countEmUp();
     }
 
     public Cell[][] getBoard(){

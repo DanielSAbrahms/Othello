@@ -1,65 +1,50 @@
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-
-import javax.swing.text.html.ListView;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.Semaphore;
 
 public class Controller implements Initializable {
+    // Global static variables
     private static String LETTERS = "ABCDEFGH";
     private static char BLACK = 'b';
     private static char WHITE = 'w';
     private static char EMPTY = '-';
     private static char INVALID = '\0';
+
     private int WHICH_PLAYER = 0;
     private OthelloBoard board;
     private OthelloBoard previousBoard;
     private int blackScore;
     private int whiteScore;
+    private String[] players;
     FXMLLoader loader;
-    private Semaphore semaphore = new Semaphore(0);
-    private static Object monitor = new Object();
 
-    @FXML private GridPane GameGrid;
+    private boolean gameStarted;
 
-    @FXML private List<Button> buttonList;
+    // global variables for the current player and opponent,
+    // as well as ints for column and row of current move
+    private char currPlayer, currOpponent;
+    private int currCol, currRow;
 
+    // Array of Buttons (this is our View game board)
     private Button[][] buttonArr;
 
-    // These are all the game buttons
-    @FXML private Button
-            A1, A2, A3, A4, A5, A6, A7, A8,
-            B1, B2, B3, B4, B5, B6, B7, B8,
-            C1, C2, C3, C4, C5, C6, C7, C8,
-            D1, D2, D3, D4, D5, D6, D7, D8,
-            E1, E2, E3, E4, E5, E6, E7, E8,
-            F1, F2, F3, F4, F5, F6, F7, F8,
-            G1, G2, G3, G4, G5, G6, G7, G8,
-            H1, H2, H3, H4, H5, H6, H7, H8;
-
+    // All explicitly named FXML items used in the class
+    @FXML private List<Button> buttonList;
     @FXML private Label ErrorLabel;
     @FXML private Button ConfirmMoveButton, DeclineMoveButton, RevertButton;
     @FXML private Button FlipSetupButton;
     @FXML private javafx.scene.control.ListView MoveHistoryTextView;
+    @FXML private Label WhitePointsLabel, BlackPointsLabel;
 
-    private char currPlayer, currOpponent;
-    private int currCol, currRow;
 
 
 
@@ -68,7 +53,6 @@ public class Controller implements Initializable {
     @FXML protected void gameButtonPress(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
         String which = button.getId();
-        System.out.println(which);
         FlipSetupButton.setDisable(true);
 
         // All this code is bc Java LOVES references, and we have to literally
@@ -84,13 +68,15 @@ public class Controller implements Initializable {
         }
         this.previousBoard = new OthelloBoard(newBoard);
 
+        // Gather the row and column indexes of the move
+        // Lots of global variables here, but it's necessary since we need access in the
+        // Confirm/Deny listeners
         currRow = Character.getNumericValue(which.charAt(1))-1;
         currCol = LETTERS.indexOf(which.charAt(0));
         if(isInvalidMove(currCol, currRow)){
             ErrorLabel.setText("Error: Invalid Move! Try Again");
             return;
         }
-        ErrorLabel.setText("PLEASE CONFIRM MOVE");
         if(WHICH_PLAYER == 0) {
             currPlayer = BLACK;
             currOpponent = WHITE;
@@ -103,7 +89,6 @@ public class Controller implements Initializable {
         ConfirmMoveButton.setDisable(false);
         DeclineMoveButton.setDisable(false);
         disableBoard(true);
-        // TODO: Display the scores to the screen
     }
 
     @Override
@@ -111,6 +96,12 @@ public class Controller implements Initializable {
         this.loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         buttonArr = new Button[8][8];
         initBoard(false);
+        this.gameStarted = false;
+        this.players = new String[2];
+        this.players[0] = "P";
+        this.players[1] = "A";
+        disableBoard(true);
+        ErrorLabel.setText("P: PRESS CONFIRM FOR BLACK\n DECLINE FOR WHITE");
     }
 
     private void initBoard(boolean reversed){
@@ -143,53 +134,53 @@ public class Controller implements Initializable {
             board.makeMove(buttonArr, WHITE, BLACK, 4, 4);
             buttonArr[4][4].setStyle("-fx-background-color: white");
         }
+        // Always start with player black, and initial score of 2 per player
         WHICH_PLAYER = 0;
-        System.out.println(board);
-        this.blackScore = 2;
-        this.whiteScore = 2;
     }
 
 
-    // Local method for passing move making/updating to the OthelloBoard class
-    public void placeMove(char which, char opponent, int row, int col) {
-        board.makeMove(buttonArr, which, opponent, row, col);
-    }
 
-    // Chill method to check if the move is invalid or valid
-    public boolean isInvalidMove(int row, int col) {
-        return board.isIndexOccupied(row, col);
-    }
+    // BLOCK OF LISTENER METHODS FOR VARIOUS BUTTON LISTENERS (NOT GAME BOARD) //
 
 
+
+    // newGame just starts everything over again
     public void newGameButtonPress(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
         initBoard(false);
         FlipSetupButton.setDisable(false);
     }
 
+    // on flipSetup press, initialize our game with board flipped
     public void flipSetupButtonPress(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
         initBoard(true);
     }
 
 
+    // On confirmMove button press, we make the appropriate move, disable the confirm/
+    // deny move buttons, add the move to the history, and enable the board buttons again
     public void confirmMoveButtonPress(ActionEvent actionEvent) {
-        Button button = buttonArr[currCol][currRow];
-        board.makeMove(buttonArr, currPlayer, currOpponent, currCol, currRow);
-        if(currPlayer == BLACK){
-            Controller.this.blackScore++;
-            button.setStyle("-fx-background-color: black");
+        if(gameStarted) {
+            Button button = buttonArr[currCol][currRow];
+            board.makeMove(buttonArr, currPlayer, currOpponent, currCol, currRow);
+            if (currPlayer == BLACK) {
+                Controller.this.blackScore++;
+                button.setStyle("-fx-background-color: black");
+            } else {
+                Controller.this.whiteScore++;
+                button.setStyle("-fx-background-color: white");
+            }
+            ObservableList<String> moveHistory = MoveHistoryTextView.getItems();
+            moveHistory.add((WHICH_PLAYER == 0 ? "BLACK:" : "WHITE:") + LETTERS.charAt(currCol) +
+                    String.valueOf(currRow + 1));
+            WHICH_PLAYER = (WHICH_PLAYER + 1) % 2;
+            ConfirmMoveButton.setDisable(true);
+            DeclineMoveButton.setDisable(true);
+            currRow = currCol = -1;
         } else {
-            Controller.this.whiteScore++;
-            button.setStyle("-fx-background-color: white");
+            gameStarted = true;
         }
-        ObservableList<String> moveHistory = MoveHistoryTextView.getItems();
-        moveHistory.add((WHICH_PLAYER == 0 ? "BLACK:" : "WHITE:") + LETTERS.charAt(currCol) +
-                String.valueOf(currRow+1));
-        WHICH_PLAYER = (WHICH_PLAYER+1) % 2;
-        ConfirmMoveButton.setDisable(true);
-        DeclineMoveButton.setDisable(true);
-        currRow = currCol = -1;
         disableBoard(false);
     }
 
@@ -200,22 +191,41 @@ public class Controller implements Initializable {
             ErrorLabel.setText("No previous state");
             return;
         }
+        // Set the current board to the previous board, draw the previous board, and
+        // Delete the last move from the move history
         Button button = (Button) actionEvent.getSource();
         this.board = this.previousBoard;
+        this.previousBoard = null;
         drawGivenBoard(this.previousBoard);
+        WHICH_PLAYER = (WHICH_PLAYER+1)%2;
         ObservableList<String> moveHistory = MoveHistoryTextView.getItems();
         moveHistory.remove(moveHistory.size()-1);
+        System.out.println(this.board.getNumOccupiedBlack());
+        WhitePointsLabel.setText("White: " + String.valueOf(board.getNumOccupiedWhite()));
+        BlackPointsLabel.setText("Black: " + String.valueOf(board.getNumOccupiedBlack()));
     }
-
 
     // Listener for decline move button press
     public void declineMoveButtonPress(ActionEvent actionEvent) {
-        ConfirmMoveButton.setDisable(true);
-        DeclineMoveButton.setDisable(true);
-        currRow = currCol = -1;
-        disableBoard(false);
-        RevertButton.fire();
+        if(gameStarted) {
+            ConfirmMoveButton.setDisable(true);
+            DeclineMoveButton.setDisable(true);
+            currRow = currCol = -1;
+            disableBoard(false);
+            RevertButton.fire();
+        } else {
+            gameStarted = true;
+            Collections.reverse(Arrays.asList(players));
+            disableBoard(false);
+        }
+        WhitePointsLabel.setText("White: " + String.valueOf(board.getNumOccupiedWhite()));
+        BlackPointsLabel.setText("Black: " + String.valueOf(board.getNumOccupiedBlack()));
     }
+
+
+
+    // BLOCK OF HELPER FUNCTIONS FOR DRAWING/DISABLING BOARD BUTTONS //
+
 
     // Method to color in game buttons appropriately given OthelloBoard
     private void drawGivenBoard(OthelloBoard board){
@@ -240,8 +250,18 @@ public class Controller implements Initializable {
                 b.setDisable(disabled);
             }
         }
-        if(disabled) ErrorLabel.setText("Please Confirm Move");
-        else ErrorLabel.setText((currPlayer == 0 ? "Black" : "White") + " Make A Move");
+        System.out.println(currPlayer);
+        if(disabled)
+            ErrorLabel.setText((WHICH_PLAYER == 0 ? this.players[1] : this.players[0]) + " Please Confirm Move");
+        else
+            ErrorLabel.setText((WHICH_PLAYER == 0 ? this.players[0] : this.players[1]) + " Make A Move");
+        WhitePointsLabel.setText("White points: " + String.valueOf(this.board.getNumOccupiedWhite()));
+        BlackPointsLabel.setText("Black points: " + String.valueOf(this.board.getNumOccupiedBlack()));
+    }
+
+    // Chill method to check if the move is invalid or valid
+    public boolean isInvalidMove(int row, int col) {
+        return board.isIndexOccupied(row, col);
     }
 }
 
