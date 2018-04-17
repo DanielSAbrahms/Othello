@@ -19,6 +19,7 @@ public class Controller implements Initializable {
     private static char EMPTY = '-';
     private static char INVALID = '\0';
 
+
     private int WHICH_PLAYER = 0;
     private OthelloBoard board;
     private OthelloBoard previousBoard;
@@ -44,6 +45,8 @@ public class Controller implements Initializable {
     @FXML private Button FlipSetupButton;
     @FXML private javafx.scene.control.ListView MoveHistoryTextView;
     @FXML private Label WhitePointsLabel, BlackPointsLabel;
+    @FXML public Label Timer;
+    @FXML public Button DeclineTurnButton;
 
 
 
