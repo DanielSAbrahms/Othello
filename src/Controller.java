@@ -1,10 +1,15 @@
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.util.Duration;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,14 +26,19 @@ public class Controller implements Initializable {
 
 
     private int WHICH_PLAYER = 0;
+    private boolean moveReverted = false;
     private OthelloBoard board;
     private OthelloBoard previousBoard;
     private int blackScore;
     private int whiteScore;
     private String[] players;
-    FXMLLoader loader;
+    private FXMLLoader loader;
 
     private boolean gameStarted;
+
+    // Variables to make the timer work correctly.
+    private Timeline timeline;
+    private int timeSeconds = 0;
 
     // global variables for the current player and opponent,
     // as well as ints for column and row of current move
@@ -45,8 +55,8 @@ public class Controller implements Initializable {
     @FXML private Button FlipSetupButton;
     @FXML private javafx.scene.control.ListView MoveHistoryTextView;
     @FXML private Label WhitePointsLabel, BlackPointsLabel;
-    @FXML public Label Timer;
     @FXML public Button DeclineTurnButton;
+    @FXML public Label TimerLabel;
 
 
 
@@ -54,6 +64,7 @@ public class Controller implements Initializable {
     // This function will be called every time a game button is clicked
     // This functionality is assigned in the FXML file, under 'onAction'
     @FXML protected void gameButtonPress(ActionEvent actionEvent) {
+        if(timeline != null) timeline.stop();
         Button button = (Button) actionEvent.getSource();
         String which = button.getId();
         FlipSetupButton.setDisable(true);
@@ -91,9 +102,13 @@ public class Controller implements Initializable {
         board.highlightAppropriate(buttonArr, currPlayer, currOpponent, currCol, currRow);
         ConfirmMoveButton.setDisable(false);
         DeclineMoveButton.setDisable(false);
+        RevertButton.setDisable(true);
+        DeclineTurnButton.setDisable(true);
         disableBoard(true);
     }
 
+
+    // Only run once, at the very beginning of when the game is run
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.loader = new FXMLLoader(getClass().getResource("sample.fxml"));
@@ -104,9 +119,10 @@ public class Controller implements Initializable {
         this.players[0] = "P";
         this.players[1] = "A";
         disableBoard(true);
-        ErrorLabel.setText("P: PRESS CONFIRM FOR BLACK\n DECLINE FOR WHITE");
+        ErrorLabel.setText("P: PRESS CONFIRM FOR BLACK\n    PRESS DENY FOR WHITE");
     }
 
+    // Can occur a number of times. Initializes board & scores, based on param reversed
     private void initBoard(boolean reversed){
         this.board = new OthelloBoard();
         // Setting all appropriate tiles to green, then coloring black/white
@@ -164,6 +180,7 @@ public class Controller implements Initializable {
     // On confirmMove button press, we make the appropriate move, disable the confirm/
     // deny move buttons, add the move to the history, and enable the board buttons again
     public void confirmMoveButtonPress(ActionEvent actionEvent) {
+        // If the game has started and we've already chosen players,
         if(gameStarted) {
             Button button = buttonArr[currCol][currRow];
             board.makeMove(buttonArr, currPlayer, currOpponent, currCol, currRow);
@@ -180,8 +197,12 @@ public class Controller implements Initializable {
             WHICH_PLAYER = (WHICH_PLAYER + 1) % 2;
             ConfirmMoveButton.setDisable(true);
             DeclineMoveButton.setDisable(true);
+            RevertButton.setDisable(false);
+            DeclineTurnButton.setDisable(false);
             currRow = currCol = -1;
-        } else {
+        }
+        // Otherwise, if we haven't started the game yet, start the game.
+        else {
             gameStarted = true;
         }
         disableBoard(false);
@@ -200,23 +221,38 @@ public class Controller implements Initializable {
         this.board = this.previousBoard;
         this.previousBoard = null;
         drawGivenBoard(this.previousBoard);
-        WHICH_PLAYER = (WHICH_PLAYER+1)%2;
+        if(moveReverted) WHICH_PLAYER = (WHICH_PLAYER+1)%2;
         ObservableList<String> moveHistory = MoveHistoryTextView.getItems();
-        moveHistory.remove(moveHistory.size()-1);
-        System.out.println(this.board.getNumOccupiedBlack());
+        if(moveHistory.size() > 0 && moveReverted) moveHistory.remove(moveHistory.size()-1);
         WhitePointsLabel.setText("White: " + String.valueOf(board.getNumOccupiedWhite()));
         BlackPointsLabel.setText("Black: " + String.valueOf(board.getNumOccupiedBlack()));
+        moveReverted = true;
+        if(timeline != null) timeline.stop();
+        disableBoard(false);
+    }
+
+    public void declineMoveButtonPress(ActionEvent event){
+        ErrorLabel.setText("Move Declined!");
+        WHICH_PLAYER = (WHICH_PLAYER+1)%2;
+        moveReverted = true;
+        disableBoard(false);
     }
 
     // Listener for decline move button press
-    public void declineMoveButtonPress(ActionEvent actionEvent) {
+    public void denyMoveButtonPress(ActionEvent actionEvent) {
+        // If the game has started, normal use.
         if(gameStarted) {
             ConfirmMoveButton.setDisable(true);
             DeclineMoveButton.setDisable(true);
+            RevertButton.setDisable(false);
+            DeclineTurnButton.setDisable(false);
             currRow = currCol = -1;
+            moveReverted = false;
             disableBoard(false);
             RevertButton.fire();
-        } else {
+        }
+        // If the game hasn't started, reverse the array of playres and start the game.
+        else {
             gameStarted = true;
             Collections.reverse(Arrays.asList(players));
             disableBoard(false);
@@ -227,7 +263,11 @@ public class Controller implements Initializable {
 
 
 
+
+
     // BLOCK OF HELPER FUNCTIONS FOR DRAWING/DISABLING BOARD BUTTONS //
+
+
 
 
     // Method to color in game buttons appropriately given OthelloBoard
@@ -253,13 +293,38 @@ public class Controller implements Initializable {
                 b.setDisable(disabled);
             }
         }
-        System.out.println(currPlayer);
         if(disabled)
             ErrorLabel.setText((WHICH_PLAYER == 0 ? this.players[1] : this.players[0]) + " Please Confirm Move");
         else
             ErrorLabel.setText((WHICH_PLAYER == 0 ? this.players[0] : this.players[1]) + " Make A Move");
         WhitePointsLabel.setText("White points: " + String.valueOf(this.board.getNumOccupiedWhite()));
         BlackPointsLabel.setText("Black points: " + String.valueOf(this.board.getNumOccupiedBlack()));
+        long startTime = System.currentTimeMillis();
+        long elapsedTime = 0L;
+        // If we're enabling the board, we start the timer immediately
+        if(!disabled) {
+            timeSeconds = 10;
+            TimerLabel.setText("Time left: " + timeSeconds);
+            if(timeline != null) timeline.stop();
+            timeline = new Timeline();
+            timeline.setCycleCount(Animation.INDEFINITE);
+            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+                // If the timer has reached 0 seconds, the player has forfeited their turn, and we do this
+                // All over again when we fire DeclineTurnButton
+                        @Override
+                        public void handle(ActionEvent event) {
+                            Controller.this.timeSeconds--;
+                            TimerLabel.setText("Time left: " + timeSeconds);
+                            if(timeSeconds <= 0){
+                                timeline.stop();
+                                DeclineTurnButton.fire();
+                            }
+                        }
+                    })
+            );
+            timeline.playFromStart();
+        }
+
     }
 
     // Chill method to check if the move is invalid or valid

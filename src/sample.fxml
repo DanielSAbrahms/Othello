@@ -12,8 +12,10 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import java.util.ArrayList?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox xmlns="http://javafx.com
+/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
@@ -25,12 +27,15 @@
                   <Button fx:id="ConfirmMoveButton" layoutX="14.0" layoutY="62.0" mnemonicParsing="false" onAction="#confirmMoveButtonPress" prefHeight="31.0" prefWidth="97.0" text="Confirm" />
                   <Label fx:id="MoveHistoryLabel" layoutX="14.0" layoutY="288.0" prefHeight="21.0" prefWidth="150.0" text="Move History" />
                   <Button fx:id="RevertButton" layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#revertButtonPress" prefHeight="31.0" prefWidth="97.0" text="Revert" />
-                  <Button fx:id="DeclineMoveButton" layoutX="121.0" layoutY="62.0" mnemonicParsing="false" onAction="#declineMoveButtonPress" prefHeight="31.0" prefWidth="97.0" text="Deny" />
-                  <Label fx:id="ErrorLabel" layoutX="14.0" layoutY="541.0" prefHeight="21.0" prefWidth="168.0" text="Error:" />
-                  <Label fx:id="WhitePointsLabel" layoutX="19.0" layoutY="225.0" prefHeight="21.0" prefWidth="168.0" text="White Points:" />
-                  <Label fx:id="BlackPointsLabel" layoutX="19.0" layoutY="254.0" prefHeight="21.0" prefWidth="168.0" text="Black Points:" />
-                  <Label fx:id="Timer" layoutX="9.0" layoutY="508.0" prefHeight="21.0" prefWidth="45.0" text="Time Left: " />
-                  <Button fx:id="DeclineTurnButton" layoutX="121.0" layoutY="113.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="97.0" text="Decline" />
+                  <Button fx:id="DeclineMoveButton" layoutX="121.0" layoutY="62.0" mnemonicParsing="false" onAction="#denyMoveButtonPress" prefHeight="31.0" prefWidth="97.0" text="Deny" />
+                  <Label fx:id="ErrorLabel" layoutX="14.0" layoutY="510.0" prefHeight="49.0" prefWidth="168.0" text="Error:" />
+                  <Label fx:id="WhitePointsLabel" layoutX="14.0" layoutY="225.0" prefHeight="21.0" prefWidth="168.0" text="White Points:" />
+                  <Label fx:id="BlackPointsLabel" layoutX="14.0" layoutY="255.0" prefHeight="21.0" prefWidth="168.0" text="Black Points:" />
+                  <Label fx:id="TimerLabel" layoutX="14.0" layoutY="163.0" prefHeight="58.0" prefWidth="168.0" text="Time Left: ">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font></Label>
+                  <Button fx:id="DeclineTurnButton" layoutX="121.0" layoutY="113.0" mnemonicParsing="false" onAction="#declineMoveButtonPress" prefHeight="31.0" prefWidth="97.0" text="Decline" />
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
