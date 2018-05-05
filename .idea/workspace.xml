@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added other buttons and action listeners">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Othello/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Othello/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Othello/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Othello/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OthelloBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OthelloBoard.java" afterDir="false" />
     </list>
@@ -85,27 +82,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="303" column="68" selection-start-line="303" selection-start-column="68" selection-end-line="303" selection-end-column="68" />
-              <folding>
-                <element signature="e#12180#12193#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OthelloBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OthelloBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state relative-caret-position="483">
+              <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#makeMove#0;class#OthelloBoard#0" />
-                <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
                 <element signature="e#13943#13944#0" expanded="true" />
                 <element signature="e#13982#13983#0" expanded="true" />
                 <element signature="e#14022#14023#0" expanded="true" />
@@ -114,6 +98,18 @@
                 <element signature="e#14130#14131#0" expanded="true" />
                 <element signature="e#14184#14185#0" expanded="true" />
                 <element signature="e#14222#14223#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
+              <folding>
+                <element signature="e#12180#12193#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,6 +146,7 @@
       <find>Decline</find>
       <find>Error</find>
       <find>Point</find>
+      <find>high</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; onAction=&quot;#gameButtonPress&quot; mn</replace>
@@ -177,8 +174,8 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller.java" />
         <option value="$PROJECT_DIR$/src/OthelloBoard.java" />
+        <option value="$PROJECT_DIR$/src/Controller.java" />
       </list>
     </option>
   </component>
@@ -203,7 +200,27 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Othello" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Othello" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Othello" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
@@ -351,12 +368,12 @@
       <workItem from="1523564632478" duration="249000" />
       <workItem from="1523592546175" duration="2735000" />
       <workItem from="1523936499102" duration="1742000" />
-      <workItem from="1525550937928" duration="3502000" />
+      <workItem from="1525550937928" duration="4874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24470000" />
+    <option name="totallyTimeSpent" value="25842000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
@@ -376,7 +393,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.16796875" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16783217" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -414,16 +431,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding>
-            <element signature="e#12180#12193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -747,6 +754,10 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -754,24 +765,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="303" column="68" selection-start-line="303" selection-start-column="68" selection-end-line="303" selection-end-column="68" />
-          <folding>
-            <element signature="e#12180#12193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="483">
+          <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#makeMove#0;class#OthelloBoard#0" />
-            <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
             <element signature="e#13943#13944#0" expanded="true" />
             <element signature="e#13982#13983#0" expanded="true" />
             <element signature="e#14022#14023#0" expanded="true" />
@@ -780,6 +780,16 @@
             <element signature="e#14130#14131#0" expanded="true" />
             <element signature="e#14184#14185#0" expanded="true" />
             <element signature="e#14222#14223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
+          <folding>
+            <element signature="e#12180#12193#0" expanded="true" />
           </folding>
         </state>
       </provider>
