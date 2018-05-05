@@ -173,13 +173,13 @@ public class OthelloBoard {
         countEmUp();
     }
 
+
     public void highlightAppropriate(Button[][] buttonArr, char player, char opponent, int row, int col){
         // Making the actual player's move
         Cell tmp = board[row][col];
         tmp.setSymbol(player);
         tmp.setOccupied(true);
         numOccupied++;
-
 
 
         int i = row, j = col;
@@ -287,6 +287,129 @@ public class OthelloBoard {
 
 
 
+
+    public int countPotential(char player, char opponent, int row, int col){
+        // Making the actual player's move
+        Cell tmp = board[row][col];
+        tmp.setSymbol(player);
+        tmp.setOccupied(true);
+        numOccupied++;
+
+        int differential = 0;
+
+
+        int i = row, j = col;
+
+        // Lots of tedious code to change the appropriate tiles
+        if(i-1>=0 && j-1>=0 && board[i-1][j-1].getSymbol() == opponent){
+            i = i-1; j = j-1;
+            while(i>0 && j>0 && board[i][j].getSymbol() == opponent) {
+                i--;
+                j--;
+            }
+            if(i>=0 && j>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row-1 && j!=col-1){
+                    ++i;++j;
+                    differential++;
+                }
+            }
+        }
+
+        i=row;j=col;
+        if(i-1>=0 && board[i-1][j].getSymbol() == opponent){
+            i = i-1;
+            while(i>0 && board[i][j].getSymbol() == opponent)
+                i--;
+            if(i>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row-1)
+                    ++i;
+                differential++;
+            }
+        }
+
+        i=row;
+        if(i-1>=0 && j+1<=7 && board[i-1][j+1].getSymbol() == opponent){
+            i = i-1; j = j+1;
+            while(i>0 && j<7 && board[i][j].getSymbol() == opponent){
+                i--;j++;
+            }
+            if(i>=0 && j<=7 && board[i][j].getSymbol() == player) {
+                while(i!=row-1 && j!=col+1)
+                    ++i;--j;
+                    differential++;
+            }
+        }
+
+        i=row;j=col;
+        if(j-1>=0 && board[i][j-1].getSymbol() == opponent){
+            j = j-1;
+            while(j>0 && board[i][j].getSymbol() == opponent)
+                j--;
+            if(j>=0 && board[i][j].getSymbol() == player) {
+                while(j!=col-1)
+                    ++j;
+                differential++;
+            }
+        }
+
+        j=col;
+        if(j+1<=7 && board[i][j+1].getSymbol() == opponent){
+            j=j+1;
+            while(j<7 && board[i][j].getSymbol() == opponent)
+                j++;
+            if(j<=7 && board[i][j].getSymbol() == player) {
+                while(j!=col+1)
+                    --j;
+                differential++;
+            }
+        }
+
+        j=col;
+        if(i+1<=7 && j-1>=0 && board[i+1][j-1].getSymbol() == opponent){
+            i=i+1;j=j-1;
+            while(i<7 && j>0 && board[i][j].getSymbol() == opponent){
+                i++;
+                j--;
+            }
+            if(i<=7 && j>=0 && board[i][j].getSymbol() == player) {
+                while(i!=row+1 && j!=col-1)
+                    --i;++j;
+                    differential++;
+            }
+        }
+
+        i=row;
+        j=col;
+        if(i+1 <= 7 && board[i+1][j].getSymbol() == opponent){
+            i=i+1;
+            while(i<7 && board[i][j].getSymbol() == opponent)
+                i++;
+            if(i<=7 && board[i][j].getSymbol() == player) {
+                while(i!=row+1)
+                    --i;
+                    differential++;
+            }
+        }
+
+        i=row;
+        if(i+1 <= 7 && j+1 <=7 && board[i+1][j+1].getSymbol() == opponent){
+            i=i+1;j=j+1;
+            while(i<7 && j<7 && board[i][j].getSymbol() == opponent){
+                i++;
+                j++;
+            }
+            if(i<=7 && j<=7 && board[i][j].getSymbol() == player) {
+                while (i != row + 1 && j != col + 1)
+                    --i;--j;
+                    differential++;
+            }
+        }
+
+        return differential;
+    }
+
+
+
     protected ArrayList<Coordinates> findPlaceableLocations(char player, char opponent, ArrayList<Coordinates> placeablePositions){
         for(int i=0;i<8;++i){
             for(int j=0;j<8;++j){
@@ -374,6 +497,10 @@ public class OthelloBoard {
     protected Cell getCellAtIndex(int row, int col){
         return board[row][col];
     }
+
+
+
+
 
     @Override
     public String toString() {

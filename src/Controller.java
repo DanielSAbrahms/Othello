@@ -97,6 +97,7 @@ public class Controller implements Initializable {
             currOpponent = BLACK;
         }
         board.highlightAppropriate(buttonArr, currPlayer, currOpponent, currCol, currRow);
+        System.out.println(board.countPotential(currPlayer, currOpponent, currCol, currRow));
         ConfirmMoveButton.setDisable(false);
         DeclineMoveButton.setDisable(false);
         RevertButton.setDisable(true);
