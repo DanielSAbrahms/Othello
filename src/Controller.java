@@ -11,10 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
     // Global static variables
@@ -303,6 +300,13 @@ public class Controller implements Initializable {
         long elapsedTime = 0L;
         // If we're enabling the board, we start the timer immediately
         if(!disabled) {
+            char player = (this.WHICH_PLAYER == 0 ? BLACK: WHITE);
+            char opponent = (this.WHICH_PLAYER == 0 ? WHITE: BLACK);
+            System.out.println(player + " " + opponent);
+            ArrayList<Coordinates> tmpList = new ArrayList<Coordinates>();
+
+            System.out.println(this.board.findPlaceableLocations(player, opponent, tmpList));
+
             timeSeconds = 10;
             TimerLabel.setText("Time left: " + timeSeconds);
             if(timeline != null) timeline.stop();

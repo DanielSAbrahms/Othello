@@ -1,5 +1,7 @@
 import javafx.scene.control.Button;
 
+import java.util.ArrayList;
+
 public class OthelloBoard {
     private static String LETTERS = "ABCDEFGH";
     private static char BLACK = 'b';
@@ -26,6 +28,7 @@ public class OthelloBoard {
         this.board = cellArr;
         countEmUp();
     }
+
 
     public Cell[][] getBoard(){
         return this.board;
@@ -178,6 +181,7 @@ public class OthelloBoard {
         numOccupied++;
 
 
+
         int i = row, j = col;
 
         // Lots of tedious code to change the appropriate tiles
@@ -280,6 +284,70 @@ public class OthelloBoard {
         if(player == 'b') buttonArr[row][col].setStyle("-fx-background-color: black");
         else buttonArr[row][col].setStyle("-fx-background-color: white");
     }
+
+
+
+    protected ArrayList<Coordinates> findPlaceableLocations(char player, char opponent, ArrayList<Coordinates> placeablePositions){
+        for(int i=0;i<8;++i){
+            for(int j=0;j<8;++j){
+                if(board[i][j].getSymbol() == opponent){
+                    int I = i, J = j;
+                    if(i-1>=0 && j-1>=0 && board[i-1][j-1].getSymbol() == '-'){
+                        i = i+1; j = j+1;
+                        while(i<7 && j<7 && board[i][j].getSymbol() == opponent){i++;j++;}
+                        if(i<=7 && j<=7 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I-1, J-1));
+                    }
+                    i=I;j=J;
+                    if(i-1>=0 && board[i-1][j].getSymbol() == '-'){
+                        i = i+1;
+                        while(i<7 && board[i][j].getSymbol() == opponent) i++;
+                        if(i<=7 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I-1, J));
+                    }
+                    i=I;
+                    if(i-1>=0 && j+1<=7 && board[i-1][j+1].getSymbol() == '-'){
+                        i = i+1; j = j-1;
+                        while(i<7 && j>0 && board[i][j].getSymbol() == opponent){i++;j--;}
+                        if(i<=7 && j>=0 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I-1, J+1));
+                    }
+                    i=I;j=J;
+                    if(j-1>=0 && board[i][j-1].getSymbol() == '-'){
+                        j = j+1;
+                        while(j<7 && board[i][j].getSymbol() == opponent)j++;
+                        if(j<=7 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I, J-1));
+                    }
+                    j=J;
+                    if(j+1<=7 && board[i][j+1].getSymbol() == '-'){
+                        j=j-1;
+                        while(j>0 && board[i][j].getSymbol() == opponent)j--;
+                        if(j>=0 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I, J+1));
+                    }
+                    j=J;
+                    if(i+1<=7 && j-1>=0 && board[i+1][j-1].getSymbol() == '-'){
+                        i=i-1;j=j+1;
+                        while(i>0 && j<7 && board[i][j].getSymbol() == opponent){i--;j++;}
+                        if(i>=0 && j<=7 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I+1, J-1));
+                    }
+                    i=I;j=J;
+                    if(i+1 <= 7 && board[i+1][j].getSymbol() == '-'){
+                        i=i-1;
+                        while(i>0 && board[i][j].getSymbol() == opponent) i--;
+                        if(i>=0 && board[i][j].getSymbol() == player) placeablePositions.add(new Coordinates(I+1, J));
+                    }
+                    i=I;
+                    if(i+1 <= 7 && j+1 <=7 && board[i+1][j+1].getSymbol() == '-'){
+                        i=i-1;j=j-1;
+                        while(i>0 && j>0 && board[i][j].getSymbol() == opponent){i--;j--;}
+                        if(i>=0 && j>=0 && board[i][j].getSymbol() == player)placeablePositions.add(new Coordinates(I+1, J+1));
+                    }
+                    i=I;j=J;
+                }
+            }
+        }
+        return placeablePositions;
+    }
+
+
+
 
     private void countEmUp(){
         numOccupiedWhite = numOccupiedBlack = 0;
