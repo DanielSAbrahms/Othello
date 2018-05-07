@@ -788,7 +788,7 @@ public class OthelloBoard {
                 numAheadBy = tmpBoard.getNumOccupiedWhite() - tmpBoard.getNumOccupiedBlack();
             }
             //return new CellValContainer(node, tmpBoard.countPotential(player, opponent, node.getCol(), node.getRow()));
-            return new CellValContainer(node, tmpBoard.cell_heur_player(player, opponent, node.getCol(), node.getRow(), depth));
+            return new CellValContainer(node, -tmpBoard.cell_heur_player(player, opponent, node.getCol(), node.getRow(), depth));
         }
         int v = 10000;
         tmpBoard.makeMoveText(player, opponent, node.getCol(), node.getRow());
@@ -838,6 +838,7 @@ public class OthelloBoard {
 
     private int cell_heur_player ( char player, char opponent, int i, int j, int depth) {
         int cost = 0;
+        if (isInvalidMove(i, j, player, opponent)) return -10000;
         OthelloBoard potentialBoard = fakeMove(player, opponent, i, j);
         if (potentialBoard.isInvalidMove(i, j, player, opponent)) return 0;
         if ((potentialBoard.isWinner(player, opponent))&&
@@ -846,40 +847,40 @@ public class OthelloBoard {
         if (potentialBoard.getBoard()[i][j].getSymbol() == player) {
             if ((i == 0 || i == 7) && (j == 0 || j == 7)) cost += heur_corner_bonus;
         }
-        if (potentialBoard.getBoard()[0][1].getSymbol() == player && isInvalidMove(0, 0, opponent, player)) {
+        if (potentialBoard.getBoard()[0][1].getSymbol() == player && !isInvalidMove(0, 0, opponent, player) && (i == 0 && j == 0)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[1][0].getSymbol() == player && isInvalidMove(0, 0, opponent, player)) {
+        if (potentialBoard.getBoard()[1][0].getSymbol() == player && !isInvalidMove(0, 0, opponent, player) && (i == 0 && j == 0)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[1][1].getSymbol() == player && isIndexOccupied(0, 0)) {
+        if (potentialBoard.getBoard()[1][1].getSymbol() == player && isIndexOccupied(0, 0) && (i == 0 && j == 0)) {
             cost -= heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[6][7].getSymbol() == player && isInvalidMove(7, 7, opponent, player)) {
+        if (potentialBoard.getBoard()[6][7].getSymbol() == player && !isInvalidMove(7, 7, opponent, player) && (i == 7 && j == 7)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[7][6].getSymbol() == player && isInvalidMove(7, 7, opponent, player)) {
+        if (potentialBoard.getBoard()[7][6].getSymbol() == player && !isInvalidMove(7, 7, opponent, player) && (i == 7 && j == 7)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[6][6].getSymbol() == player && isIndexOccupied(7, 7)) {
+        if (potentialBoard.getBoard()[6][6].getSymbol() == player && isIndexOccupied(7, 7) && (i == 7 && j == 7)) {
             cost -= heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[1][7].getSymbol() == player && isInvalidMove(0, 7, opponent, player)) {
+        if (potentialBoard.getBoard()[1][7].getSymbol() == player && !isInvalidMove(0, 7, opponent, player)  && (i == 0 && j == 7)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[0][6].getSymbol() == player && isInvalidMove(0, 7, opponent, player)) {
+        if (potentialBoard.getBoard()[0][6].getSymbol() == player && !isInvalidMove(0, 7, opponent, player)  && (i == 0 && j == 7)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[1][6].getSymbol() == player && isIndexOccupied(0, 7)) {
+        if (potentialBoard.getBoard()[1][6].getSymbol() == player && isIndexOccupied(0, 7)  && (i == 0 && j == 7)) {
             cost -= heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[7][1].getSymbol() == player && isInvalidMove(7, 0, opponent, player)) {
+        if (potentialBoard.getBoard()[7][1].getSymbol() == player && !isInvalidMove(7, 0, opponent, player)  && (i == 7 && j == 0)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[6][0].getSymbol() == player && isInvalidMove(7, 0, opponent, player)) {
+        if (potentialBoard.getBoard()[6][0].getSymbol() == player && !isInvalidMove(7, 0, opponent, player)  && (i == 7 && j == 0)) {
             cost += heur_corner_takeover_bonus;
         }
-        if (potentialBoard.getBoard()[6][1].getSymbol() == player && isIndexOccupied(7, 0)) {
+        if (potentialBoard.getBoard()[6][1].getSymbol() == player && isIndexOccupied(7, 0 ) && (i == 7 && j == 0)) {
             cost -= heur_corner_takeover_bonus;
         }
         cost += (potentialBoard.howManyEdges(player, opponent)*heur_edge_bonus);

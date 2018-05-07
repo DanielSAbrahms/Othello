@@ -218,7 +218,16 @@ public class Controller implements Initializable {
         // Set the current board to the previous board, draw the previous board, and
         // Delete the last move from the move history
         Button button = (Button) actionEvent.getSource();
-        this.board = this.previousBoard;
+        Cell[][] newBoard = new Cell[8][8];
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                Cell tmpCell = previousBoard.getCellAtIndex(j,i);
+                newBoard[j][i] = new Cell(tmpCell.getCoordinates(),
+                        tmpCell.getSymbol(), tmpCell.isOccupied());
+            }
+        }
+        this.board = new OthelloBoard(newBoard);
+        System.out.println(this.board);
         this.previousBoard = null;
         drawGivenBoard(this.previousBoard);
         if(moveReverted) WHICH_PLAYER = (WHICH_PLAYER+1)%2;
@@ -248,8 +257,10 @@ public class Controller implements Initializable {
             DeclineTurnButton.setDisable(false);
             currRow = currCol = -1;
             moveReverted = false;
+            this.board = this.previousBoard;
+            this.previousBoard = null;
+            drawGivenBoard(this.board);
             disableBoard(false);
-            RevertButton.fire();
         }
         // If the game hasn't started, reverse the array of playres and start the game.
         else {
