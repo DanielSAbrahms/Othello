@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/Controller.java" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Added other buttons and action listeners">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CellValContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Othello/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Othello/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Othello/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Othello/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Othello/OthelloBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Othello/OthelloBoard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OthelloBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OthelloBoard.java" afterDir="false" />
     </list>
@@ -60,71 +68,109 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Coordinates.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OthelloBoard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#makeMove#0;class#OthelloBoard#0" />
-                <element signature="e#13943#13944#0" expanded="true" />
-                <element signature="e#13982#13983#0" expanded="true" />
-                <element signature="e#14022#14023#0" expanded="true" />
-                <element signature="e#14061#14062#0" expanded="true" />
-                <element signature="e#14096#14097#0" expanded="true" />
-                <element signature="e#14130#14131#0" expanded="true" />
-                <element signature="e#14184#14185#0" expanded="true" />
-                <element signature="e#14222#14223#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
-              <folding>
-                <element signature="e#12180#12193#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Cell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.47659063">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Main.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="85">
+                  <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Coordinates.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="13" selection-start-column="13" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CellValContainer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/CellValContainer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="153">
+                  <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+                  <folding>
+                    <element signature="e#308#309#0" expanded="true" />
+                    <element signature="e#367#368#0" expanded="true" />
+                    <element signature="e#413#414#0" expanded="true" />
+                    <element signature="e#442#443#0" expanded="true" />
+                    <element signature="e#470#471#0" expanded="true" />
+                    <element signature="e#509#510#0" expanded="true" />
+                    <element signature="e#543#544#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Controller.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-465">
+                  <caret line="193" column="80" lean-forward="true" selection-start-line="193" selection-start-column="80" selection-end-line="193" selection-end-column="80" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Cell.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Cell.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="119">
+                  <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OthelloBoard.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1122">
+                  <caret line="723" selection-start-line="723" selection-end-line="723" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#makeMove#0;class#OthelloBoard#0" />
+                    <element signature="method#highlightAppropriate#0;class#OthelloBoard#0" />
+                    <element signature="method#countPotential#0;class#OthelloBoard#0" />
+                    <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
+                    <element signature="method#makeMoveText#0;class#OthelloBoard#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="OthelloBoard.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="374">
+                  <caret line="847" column="9" lean-forward="true" selection-start-line="847" selection-start-column="9" selection-end-line="847" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#makeMove#0;class#OthelloBoard#0" />
+                    <element signature="method#fakeMove#0;class#OthelloBoard#0" />
+                    <element signature="method#highlightAppropriate#0;class#OthelloBoard#0" />
+                    <element signature="method#countPotential#0;class#OthelloBoard#0" />
+                    <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
+                    <element signature="method#makeMoveText#0;class#OthelloBoard#0" />
+                    <element signature="method#maxVal#0;class#OthelloBoard#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -147,6 +193,12 @@
       <find>Error</find>
       <find>Point</find>
       <find>high</find>
+      <find>AI</find>
+      <find>potenti</find>
+      <find>DEPTH_BOUND_OTHER</find>
+      <find>== '.'</find>
+      <find>board</find>
+      <find>20</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; onAction=&quot;#gameButtonPress&quot; mn</replace>
@@ -154,6 +206,10 @@
       <replace>H</replace>
       <replace>board[i][j].getSymbol()</replace>
       <replace>Coordinates</replace>
+      <replace>newBoard</replace>
+      <replace>newBoard.getBoard()</replace>
+      <replace>potentialBoard.getBoard()</replace>
+      <replace>heur_corner_takeover_bonus</replace>
     </replaceStrings>
   </component>
   <component name="FindManager">
@@ -174,8 +230,9 @@
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/OthelloBoard.java" />
+        <option value="$PROJECT_DIR$/src/CellValContainer.java" />
         <option value="$PROJECT_DIR$/src/Controller.java" />
+        <option value="$PROJECT_DIR$/src/OthelloBoard.java" />
       </list>
     </option>
   </component>
@@ -201,6 +258,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,9 +277,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,12 +425,23 @@
       <workItem from="1523564632478" duration="249000" />
       <workItem from="1523592546175" duration="2735000" />
       <workItem from="1523936499102" duration="1742000" />
-      <workItem from="1525550937928" duration="4874000" />
+      <workItem from="1525550937928" duration="16944000" />
+      <workItem from="1525622318489" duration="6592000" />
+      <workItem from="1525633872376" duration="6213000" />
+      <workItem from="1525716063122" duration="4741000" />
     </task>
+    <task id="LOCAL-00001" summary="Function added for point counting">
+      <created>1525556169723</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1525556169723</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25842000" />
+    <option name="totallyTimeSpent" value="55458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
@@ -388,19 +456,19 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015987" side_tool="true" weight="0.32956383" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840128" weight="0.6090909" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840128" weight="0.17676768" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32929292" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16783217" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17082918" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989899" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -408,6 +476,36 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938388" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32938388" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840128" weight="0.6090909" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989899" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5015987" side_tool="true" weight="0.32956383" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32827586" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16783217" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -419,11 +517,12 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="Added other buttons and action listeners" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added other buttons and action listeners" />
+    <MESSAGE value="Function added for point counting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function added for point counting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -431,10 +530,20 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Cell.java">
+    <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        <state relative-caret-position="10149">
+          <caret line="597" selection-start-line="597" selection-end-line="597" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeMove#0;class#OthelloBoard#0" />
+            <element signature="method#fakeMove#0;class#OthelloBoard#0" />
+            <element signature="method#highlightAppropriate#0;class#OthelloBoard#0" />
+            <element signature="method#countPotential#0;class#OthelloBoard#0" />
+            <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
+            <element signature="method#makeMoveText#0;class#OthelloBoard#0" />
+            <element signature="method#maxVal#0;class#OthelloBoard#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -737,6 +846,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/BoardController.java" />
     <entry file="file://$PROJECT_DIR$/src/BoardController.java" />
+    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -754,42 +870,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Coordinates.java">
+    <entry file="file://$PROJECT_DIR$/src/CellValContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="290" column="30" selection-start-line="290" selection-start-column="30" selection-end-line="290" selection-end-column="30" />
+        <state relative-caret-position="153">
+          <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#makeMove#0;class#OthelloBoard#0" />
-            <element signature="e#13943#13944#0" expanded="true" />
-            <element signature="e#13982#13983#0" expanded="true" />
-            <element signature="e#14022#14023#0" expanded="true" />
-            <element signature="e#14061#14062#0" expanded="true" />
-            <element signature="e#14096#14097#0" expanded="true" />
-            <element signature="e#14130#14131#0" expanded="true" />
-            <element signature="e#14184#14185#0" expanded="true" />
-            <element signature="e#14222#14223#0" expanded="true" />
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#367#368#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#442#443#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="109" column="13" lean-forward="true" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
+        <state relative-caret-position="-465">
+          <caret line="193" column="80" lean-forward="true" selection-start-line="193" selection-start-column="80" selection-end-line="193" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OthelloBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="847" column="9" lean-forward="true" selection-start-line="847" selection-start-column="9" selection-end-line="847" selection-end-column="9" />
           <folding>
-            <element signature="e#12180#12193#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeMove#0;class#OthelloBoard#0" />
+            <element signature="method#fakeMove#0;class#OthelloBoard#0" />
+            <element signature="method#highlightAppropriate#0;class#OthelloBoard#0" />
+            <element signature="method#countPotential#0;class#OthelloBoard#0" />
+            <element signature="method#findPlaceableLocations#0;class#OthelloBoard#0" />
+            <element signature="method#makeMoveText#0;class#OthelloBoard#0" />
+            <element signature="method#maxVal#0;class#OthelloBoard#0" />
           </folding>
         </state>
       </provider>
@@ -852,7 +968,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

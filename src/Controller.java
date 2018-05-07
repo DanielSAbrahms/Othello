@@ -61,6 +61,7 @@ public class Controller implements Initializable {
     // This function will be called every time a game button is clicked
     // This functionality is assigned in the FXML file, under 'onAction'
     @FXML protected void gameButtonPress(ActionEvent actionEvent) {
+        System.out.println("MAKING A MOVE!");
         if(timeline != null) timeline.stop();
         Button button = (Button) actionEvent.getSource();
         String which = button.getId();
@@ -84,10 +85,11 @@ public class Controller implements Initializable {
         // Confirm/Deny listeners
         currRow = Character.getNumericValue(which.charAt(1))-1;
         currCol = LETTERS.indexOf(which.charAt(0));
+        /*
         if(isInvalidMove(currCol, currRow)){
             ErrorLabel.setText("Error: Invalid Move! Try Again");
             return;
-        }
+        }*/
         if(WHICH_PLAYER == 0) {
             currPlayer = BLACK;
             currOpponent = WHITE;
@@ -300,17 +302,14 @@ public class Controller implements Initializable {
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0L;
         // If we're enabling the board, we start the timer immediately
-        if(!disabled) {
-            char player = (this.WHICH_PLAYER == 0 ? BLACK: WHITE);
-            char opponent = (this.WHICH_PLAYER == 0 ? WHITE: BLACK);
+        if(!disabled && this.players[WHICH_PLAYER] == "A") {
+            char player = (this.WHICH_PLAYER == 0 ? BLACK : WHITE);
+            char opponent = (this.WHICH_PLAYER == 0 ? WHITE : BLACK);
             System.out.println(player + " " + opponent);
             ArrayList<Coordinates> tmpList = new ArrayList<Coordinates>();
-
-            System.out.println(this.board.findPlaceableLocations(player, opponent, tmpList));
-
             timeSeconds = 10;
             TimerLabel.setText("Time left: " + timeSeconds);
-            if(timeline != null) timeline.stop();
+            if (timeline != null) timeline.stop();
             timeline = new Timeline();
             timeline.setCycleCount(Animation.INDEFINITE);
             timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
@@ -320,7 +319,7 @@ public class Controller implements Initializable {
                         public void handle(ActionEvent event) {
                             Controller.this.timeSeconds--;
                             TimerLabel.setText("Time left: " + timeSeconds);
-                            if(timeSeconds <= 0){
+                            if (timeSeconds <= 0) {
                                 timeline.stop();
                                 DeclineTurnButton.fire();
                             }
@@ -328,13 +327,26 @@ public class Controller implements Initializable {
                     })
             );
             timeline.playFromStart();
+            Coordinates tmp = this.board.AI(player, opponent);
+            if (tmp == null) {
+                DeclineTurnButton.fire();
+                //System.exit(1);
+            } else {
+                int tmpRow = tmp.getRow();
+                int tmpCol = tmp.getCol();
+                System.out.println(tmpRow + " " + tmpCol);
+                this.buttonArr[tmpRow][tmpCol].fire();
+            }
         }
-
     }
 
     // Chill method to check if the move is invalid or valid
     public boolean isInvalidMove(int row, int col) {
-        return board.isIndexOccupied(row, col);
+        char player = (this.WHICH_PLAYER == 0 ? BLACK: WHITE);
+        char opponent = (this.WHICH_PLAYER == 0 ? WHITE: BLACK);
+        if(this.board.isIndexOccupied(row, col)) return false;
+        if(this.board.countPotential(player, opponent, row, col) == 0 ) return false;
+        return true;
     }
 }
 
